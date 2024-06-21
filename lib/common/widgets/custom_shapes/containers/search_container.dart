@@ -12,30 +12,32 @@ class GSearchBar extends StatelessWidget {
     required this.searchHint,
     this.icon = Iconsax.search_normal,
     this.showBackground = true,
-    this.showBorder = true,
+    this.showBorder,
+    this.padding = const EdgeInsets.symmetric(horizontal: GSizes.defaultSpace),
   });
 
   final String searchHint;
   final IconData? icon;
-  final bool showBackground, showBorder;
+  final EdgeInsets padding;
+  final bool? showBackground, showBorder;
 
   @override
   Widget build(BuildContext context) {
     final dark = GHelperFunctions.isDarkMode(context);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: GSizes.defaultSpace),
+      padding: padding,
       child: Container(
         width: GDeviceUtils.getScreenWidth(context),
         padding: const EdgeInsets.all(GSizes.md),
         decoration: BoxDecoration(
-          color: showBackground
+          color: showBackground!
               ? dark
                   ? GColors.dark
                   : GColors.light
               : Colors.transparent,
-          border: showBorder
-              ? Border.all(color: dark ? GColors.dark : GColors.light)
+          border: showBorder!
+              ? Border.all(color: dark ? GColors.darkerGrey : GColors.grey)
               : null,
           borderRadius: BorderRadius.circular(GSizes.cardRadiusLg),
         ),

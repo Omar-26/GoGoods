@@ -1,11 +1,12 @@
 import 'package:GoGoods/utils/constants/colors.dart';
+import 'package:GoGoods/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
-class SectionHeading extends StatelessWidget {
-  const SectionHeading({
+class GSectionHeading extends StatelessWidget {
+  const GSectionHeading({
     super.key,
     required this.title,
-    this.textColor = GColors.white,
+    this.textColor,
     this.buttonText = 'View All',
     this.onPressed,
     this.showActionButton = true,
@@ -18,13 +19,15 @@ class SectionHeading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = GHelperFunctions.isDarkMode(context);
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           title,
           style: Theme.of(context).textTheme.headlineSmall!.apply(
-                color: textColor,
+                color: textColor ?? (dark ? GColors.white : GColors.black),
               ),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,

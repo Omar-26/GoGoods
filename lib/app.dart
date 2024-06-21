@@ -8,17 +8,15 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red, // Set your desired color here
-      child: SafeArea(
-        top: true,
-        bottom: true,
-        child: GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          themeMode: ThemeMode.system,
-          theme: GAppTheme.lightTheme,
-          darkTheme: GAppTheme.darkTheme,
-          home: const OnBoardingScreen(),
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system,
+      theme: GAppTheme.lightTheme,
+      darkTheme: GAppTheme.darkTheme,
+      home: Builder(
+        builder: (context) => Container(
+          margin: EdgeInsets.only(top: MediaQuery.of(context).padding.top), // Add this
+          child: const OnBoardingScreen(),
         ),
       ),
     );

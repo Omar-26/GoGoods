@@ -1,3 +1,4 @@
+import 'package:GoGoods/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../utils/constants/colors.dart';
@@ -6,12 +7,14 @@ class GCounterIcon extends StatelessWidget {
   const GCounterIcon({
     super.key,
     required this.icon,
-    required this.iconColor,
+    this.iconColor,
     this.onPressed,
+    this.backgroundColor,
+    this.textColor,
   });
 
   final IconData icon;
-  final Color iconColor;
+  final Color? iconColor, backgroundColor, textColor;
   final VoidCallback? onPressed;
 
   @override
@@ -36,14 +39,14 @@ class GCounterIcon extends StatelessWidget {
             width: 18,
             height: 18,
             decoration: BoxDecoration(
-              color: GColors.black.withOpacity(0.8),
+              color: backgroundColor ?? GColors.black.withOpacity(0.8),
               borderRadius: BorderRadius.circular(18),
             ),
             child: Text(
               '2', // will be variable
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.labelLarge!.apply(
-                    color: GColors.white,
+                    color: textColor ?? GColors.white,
                   ),
             ),
           ),

@@ -2,6 +2,7 @@ import 'package:GoGoods/common/icons/circular_icon.dart';
 import 'package:GoGoods/common/styles/shadows.dart';
 import 'package:GoGoods/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:GoGoods/common/widgets/images/rounded_border_image.dart';
+import 'package:GoGoods/common/widgets/texts/brand_title_text_with_icon.dart';
 import 'package:GoGoods/common/widgets/texts/product_price_text.dart';
 import 'package:GoGoods/common/widgets/texts/product_title_text.dart';
 import 'package:GoGoods/utils/constants/colors.dart';
@@ -24,7 +25,7 @@ class GVerticalProductCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: 180,
-        padding: const EdgeInsets.only(top: 4),
+        padding: const EdgeInsets.only(top: 3),
         // padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
           boxShadow: [GShadowStyles.verticalProductShadow],
@@ -33,7 +34,7 @@ class GVerticalProductCard extends StatelessWidget {
         ),
         child: Column(
           children: [
-            /// Thumbnail , WishList Button and Discount Badge
+            /// --Thumbnail, WishList Button and Discount Badge
             GCircularContainer(
               height: 160,
               width: 160,
@@ -43,7 +44,7 @@ class GVerticalProductCard extends StatelessWidget {
               showBorder: false,
               child: Stack(
                 children: [
-                  /// Product Thumbnail
+                  // Product Thumbnail
                   GRoundedBorderImage(
                     imageUrl: GImages.productImage1,
                     backgroundColor: dark ? GColors.dark : GColors.white,
@@ -79,33 +80,19 @@ class GVerticalProductCard extends StatelessWidget {
             ),
             const SizedBox(height: GSizes.spaceBtwItems / 2),
 
-            /// Product Details
-            Padding(
-              padding: const EdgeInsets.only(left: GSizes.sm),
+            /// --Product Details
+            const Padding(
+              padding: EdgeInsets.only(left: GSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Product Name
-                  const GProductTitleText(
+                  GProductTitleText(
                       text: 'Green Nike Air Shoes', isSmallText: true),
-                  const SizedBox(height: GSizes.spaceBtwItems / 2),
+                  SizedBox(height: GSizes.spaceBtwItems / 2),
 
                   // Brand Name with Verified Badge
-                  Row(
-                    children: [
-                      // Brand Name
-                      Text(
-                        'Nike',
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                      const SizedBox(width: GSizes.xs),
-                      // Verified Badge
-                      const Icon(Iconsax.verify5,
-                          color: GColors.primary, size: GSizes.iconXs),
-                    ],
-                  ),
+                  GBrandTitleTextWithIcon(title: 'Nike'),
                 ],
               ),
             ),

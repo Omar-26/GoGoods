@@ -25,6 +25,7 @@ class GCustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: GSizes.md),
       child: AppBar(
+        bottomOpacity: 1,
         automaticallyImplyLeading: showBackArrow!,
         leading: showBackArrow!
             ?
