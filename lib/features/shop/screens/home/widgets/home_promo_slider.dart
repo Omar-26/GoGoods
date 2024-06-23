@@ -1,13 +1,12 @@
 import 'package:GoGoods/features/shop/controllers/home_controller.dart';
+import 'package:GoGoods/utils/helpers/helper_functions.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../../../common/widgets/custom_shapes/containers/circular_container.dart';
 import '../../../../../common/widgets/images/rounded_border_image.dart';
 import '../../../../../utils/constants/colors.dart';
-import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 
 class CarouselPromoSlider extends StatelessWidget {
@@ -21,6 +20,7 @@ class CarouselPromoSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(HomeController());
+    final dark = GHelperFunctions.isDarkMode(context);
 
     return Column(
       children: [
@@ -48,12 +48,12 @@ class CarouselPromoSlider extends StatelessWidget {
             curve: Curves.fastOutSlowIn,
             activeIndex: controller.carouselCurrentIndex.value,
             count: banners.length,
-            effect: const ExpandingDotsEffect(
+            effect: ExpandingDotsEffect(
               dotWidth: 10,
-              dotHeight: 7,
-              dotColor: GColors.grey,
+              dotHeight: 10,
+              dotColor: dark ? GColors.darkerGrey : GColors.primary.withOpacity(0.2),
               activeDotColor: GColors.primary,
-              expansionFactor: 3,
+              expansionFactor: 4,
             ),
           ),
           // Another Shape for the Indicator (Without Animation)

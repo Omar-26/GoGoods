@@ -8,15 +8,17 @@ class GPrimaryHeaderContainer extends StatelessWidget {
   const GPrimaryHeaderContainer({
     super.key,
     required this.child,
+    this.height,
   });
 
   final Widget child;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
     return GCustomCurvedEdgesWidget(
       child: SizedBox(
-        height: 400,
+        height: height,
         child: Container(
           color: GColors.primary,
           child: Stack(

@@ -1,7 +1,6 @@
 import 'package:GoGoods/utils/constants/colors.dart';
 import 'package:GoGoods/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 class GCircularIcon extends StatelessWidget {
   const GCircularIcon({

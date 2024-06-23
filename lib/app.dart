@@ -13,6 +13,7 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: GAppTheme.lightTheme,
       darkTheme: GAppTheme.darkTheme,
+
       home: Builder(
         builder: (context) => Container(
           margin: EdgeInsets.only(top: MediaQuery.of(context).padding.top), // Add this

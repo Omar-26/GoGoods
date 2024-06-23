@@ -33,7 +33,16 @@ class GSectionHeading extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         if (showActionButton)
-          TextButton(onPressed: onPressed, child: Text(buttonText)),
+          TextButton(
+            onPressed: onPressed,
+            child: Text(
+              buttonText,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodySmall!
+                  .apply(color: GColors.primary),
+            ),
+          )
       ],
     );
   }

@@ -1,15 +1,10 @@
 import 'package:GoGoods/common/widgets/appbar/appbar.dart';
 import 'package:GoGoods/common/widgets/appbar/tabbar.dart';
-import 'package:GoGoods/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:GoGoods/common/widgets/layouts/grid_layout.dart';
 import 'package:GoGoods/common/widgets/products/cart/counter_icon.dart';
-import 'package:GoGoods/common/widgets/texts/section_heading.dart';
-import 'package:GoGoods/features/shop/screens/Store/widgets/brand_card.dart';
 import 'package:GoGoods/features/shop/screens/Store/widgets/category_tab.dart';
 import 'package:GoGoods/features/shop/screens/Store/widgets/featured_brands_section.dart';
 import 'package:GoGoods/utils/constants/colors.dart';
 
-import 'package:GoGoods/utils/constants/image_strings.dart';
 import 'package:GoGoods/utils/constants/sizes.dart';
 import 'package:GoGoods/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';

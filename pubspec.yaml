@@ -33,6 +33,9 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   capped_progress_indicator: ^0.0.2
   flutter_social_button: ^1.1.4+1
+  animated_toggle_switch: ^0.8.2
+  google_nav_bar: ^5.0.6
+  day_night_switcher: ^0.2.0+1
 
   #--------------- ./ PACKAGES END ------------------#
 

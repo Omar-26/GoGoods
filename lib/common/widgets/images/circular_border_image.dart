@@ -19,13 +19,14 @@ class GCircularBorderImage extends StatelessWidget {
     this.borderRadius = GSizes.md,
     this.applyImageBorderRadius = true,
     this.onPressed,
+    this.applyImageColor = true,
   });
 
   final double width, height;
   final Color? overlayColor, backgroundColor;
   final EdgeInsetsGeometry? padding;
   final String imageUrl;
-  final bool isNetworkImage, applyImageBorderRadius;
+  final bool isNetworkImage, applyImageBorderRadius, applyImageColor;
   final BoxBorder? border;
   final double borderRadius;
   final BoxFit? fit;
@@ -51,7 +52,8 @@ class GCircularBorderImage extends StatelessWidget {
               : BorderRadius.zero,
           child: Image(
             fit: fit,
-            color: overlayColor ?? (dark ? GColors.white : GColors.black),
+            color:
+                applyImageColor ? (dark ? GColors.white : GColors.black) : null,
             image: isNetworkImage
                 ? NetworkImage(imageUrl)
                 : AssetImage(imageUrl) as ImageProvider,
