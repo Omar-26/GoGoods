@@ -12,7 +12,7 @@ class GBrandCard extends StatelessWidget {
     super.key,
     required this.imageUrl,
     required this.brandTitle,
-    required this.brandSubtitle,
+    this.brandSubtitle,
     this.photoFit = BoxFit.contain,
     this.showBorder = true,
     this.borderColor,
@@ -20,7 +20,9 @@ class GBrandCard extends StatelessWidget {
     this.onTap,
   });
 
-  final String imageUrl, brandTitle, brandSubtitle;
+  final String imageUrl, brandTitle;
+  final String? brandSubtitle;
+
   final BoxFit? photoFit;
   final bool showBorder;
   final Color? borderColor, backgroundColor;
@@ -60,7 +62,7 @@ class GBrandCard extends StatelessWidget {
                     brandTextSize: TextSizes.large,
                   ),
                   const SizedBox(height: GSizes.spaceBtwItems / 8),
-                  Text(brandSubtitle,
+                  Text(brandSubtitle?? '',
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.labelMedium)
                 ],

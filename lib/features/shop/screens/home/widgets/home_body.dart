@@ -1,8 +1,10 @@
 import 'package:GoGoods/common/widgets/layouts/grid_layout.dart';
 import 'package:GoGoods/common/widgets/products/cards/product_card_vertical.dart';
 import 'package:GoGoods/common/widgets/texts/section_heading.dart';
+import 'package:GoGoods/features/shop/screens/product_details/product_details.dart';
 import 'package:GoGoods/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../../utils/constants/image_strings.dart';
 import 'home_promo_slider.dart';
@@ -45,8 +47,7 @@ class GHomeBody extends StatelessWidget {
                 // Products Grid
                 GGridLayout(
                     itemCount: 8,
-                    itemBuilder: (_, index) =>
-                    const GVerticalProductCard()),
+                    itemBuilder: (_, index) => GVerticalProductCard(onTap:()=> Get.to(()=> const ProductDetailsScreen()) ,)),
               ],
             ),
           ),
