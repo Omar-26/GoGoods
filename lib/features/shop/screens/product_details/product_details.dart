@@ -1,17 +1,11 @@
 import 'package:GoGoods/common/widgets/appbar/appbar.dart';
-import 'package:GoGoods/common/widgets/layouts/grid_layout.dart';
-import 'package:GoGoods/common/widgets/texts/brand_title_text_with_icon.dart';
 import 'package:GoGoods/features/shop/screens/Store/widgets/brand_card.dart';
-import 'package:GoGoods/features/shop/screens/home/widgets/home_body.dart';
-import 'package:GoGoods/features/shop/screens/home/widgets/home_promo_slider.dart';
 import 'package:GoGoods/features/shop/screens/product_details/widgets/product_details_showcase.dart';
 import 'package:GoGoods/utils/constants/image_strings.dart';
 import 'package:GoGoods/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
-import '../../../../common/widgets/products/cards/product_card_vertical.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/helpers/helper_functions.dart';
@@ -66,20 +60,20 @@ class ProductDetailsScreen extends StatelessWidget {
                             /// --Popular Products Section
                             // Products Title
                             GSectionHeading(title: 'Nike Air Max 270', showActionButton: false),
-                            const SizedBox(height: GSizes.spaceBtwSections),
+                            SizedBox(height: GSizes.spaceBtwSections),
                             GBrandCard(
                               imageUrl: GImages.nikeLogo,
                               brandTitle: 'Nike',
                               photoFit: BoxFit.scaleDown,
                               showBorder: false,
                             ),
-                            const SizedBox(height: GSizes.spaceBtwSections),
+                            SizedBox(height: GSizes.spaceBtwSections),
                             GSectionHeading(title: 'in stock', showActionButton: false),
-                            const SizedBox(height: GSizes.spaceBtwSections),
+                            SizedBox(height: GSizes.spaceBtwSections),
                             GSectionHeading(title: 'Nike Air Max 270', showActionButton: false),
-                            const SizedBox(height: GSizes.spaceBtwSections),
+                            SizedBox(height: GSizes.spaceBtwSections),
                             GSectionHeading(title: 'Size', showActionButton: false),
-                            const SizedBox(height: GSizes.spaceBtwSections),
+                            SizedBox(height: GSizes.spaceBtwSections),
                             GSectionHeading(title: 'Colors', showActionButton: false),
                           ],
                         ),

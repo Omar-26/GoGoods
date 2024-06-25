@@ -1,7 +1,9 @@
 import 'package:GoGoods/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:GoGoods/navigation_bar.dart';
 import 'package:GoGoods/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 
 class App extends StatelessWidget {
   const App({super.key});
