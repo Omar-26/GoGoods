@@ -27,64 +27,75 @@ class GProductDetailsShowcase extends StatelessWidget {
       flexibleSpace: LayoutBuilder(
         builder: (_, BoxConstraints constraints) {
           double top = constraints.biggest.height;
+
+          /// --Product Image Area
           return Stack(
             clipBehavior: Clip.hardEdge,
             children: [
-              /// --Background of the AppBar
+              // --background Product Image Area
               FlexibleSpaceBar(
                 background: Stack(
                   children: [
+                    // Text Behind Product Image
                     Positioned(
-                      left: screenWidth / 10,
-                      bottom: 15,
-                      child: Text(
-                        'AIR',
-                        style: TextStyle(
-                          fontSize: 200,
-                          color: dark
-                              ? GColors.grey.withOpacity(0.4)
-                              : GColors.darkerGrey.withOpacity(0.4),
-                          fontWeight: FontWeight.w900,
+                      right: 0,
+                      left: 0,
+                      bottom: 20,
+                      child: Center(
+                        child: Text(
+                          'AIR',
+                          style: TextStyle(
+                            fontSize: 200,
+                            color: dark
+                                ? GColors.grey.withOpacity(0.4)
+                                : GColors.darkerGrey.withOpacity(0.4),
+                            fontWeight: FontWeight.w900,
+                          ),
                         ),
                       ),
                     ),
+                    // Product Image
                     SizedBox(
                       height: 170,
                       width: screenWidth,
-                      child: const Image(
-                        fit: BoxFit.fitHeight,
-                        image: AssetImage(GImages.productImage10),
+                      child: const Center(
+                        child: Image(
+                          fit: BoxFit.fitHeight,
+                          image: AssetImage(GImages.productImage10),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
 
-              /// --4 photos of various angles of the product
+              // --Photos of various angles of the product
               Positioned(
                 bottom: 8,
-                right: screenWidth/12,
-                left: screenWidth/12,
-                child: AnimatedOpacity(
-                  opacity: top >= 100.0 ? 1 : 0,
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.decelerate,
-                  child: SizedBox(
-                    height: 70,
-                    child: ListView.separated(
-                      shrinkWrap: true,
-                      physics: const BouncingScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 4,
-                      separatorBuilder: (_, __) =>
-                      const SizedBox(width: GSizes.spaceBtwItems),
-                      itemBuilder: (_, index) => GCircularBorderImage(
-                        width: 70,
-                        imageUrl: GImages.productImage7,
-                        fit: BoxFit.contain,
-                        applyImageColor: false,
-                        backgroundColor: dark ? GColors.black : GColors.white,
-                        // border: Border.all(color: GColors.primary),
+                right: 0,
+                left: 0,
+                child: Center(
+                  child: AnimatedOpacity(
+                    opacity: top >= 100.0 ? 1 : 0,
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.decelerate,
+                    child: SizedBox(
+                      height: 80,
+                      child: ListView.separated(
+                        shrinkWrap: true,
+                        physics: const BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 4,
+                        separatorBuilder: (_, __) =>
+                            const SizedBox(width: GSizes.spaceBtwItems),
+                        itemBuilder: (_, index) => GCircularBorderImage(
+                          width: 80,
+                          imageUrl: GImages.productImage10,
+                          fit: BoxFit.contain,
+                          applyImageColor: false,
+                          backgroundColor: dark ? GColors.black : GColors.white,
+                          border: Border.all(color: GColors.primary),
+                        ),
                       ),
                     ),
                   ),

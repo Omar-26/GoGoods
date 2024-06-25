@@ -1,12 +1,12 @@
 import 'package:GoGoods/common/widgets/appbar/appbar.dart';
-import 'package:GoGoods/features/shop/screens/Store/widgets/brand_card.dart';
+import 'package:GoGoods/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:GoGoods/features/shop/screens/product_details/widgets/product_details_showcase.dart';
-import 'package:GoGoods/utils/constants/image_strings.dart';
+import 'package:GoGoods/features/shop/screens/product_details/widgets/product_meta_data.dart';
+import 'package:GoGoods/features/shop/screens/product_details/widgets/rating_and_share.dart';
 import 'package:GoGoods/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 
@@ -16,13 +16,14 @@ class ProductDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = GHelperFunctions.isDarkMode(context);
+    final screenWidth = GHelperFunctions.screenWidth();
+
     return Scaffold(
       backgroundColor: dark ? GColors.dark : GColors.light,
-      // backgroundColor: GColors.grey,
       appBar: GCustomAppBar(
         showBackgroundColor: false,
         leadingIcon: Iconsax.arrow_left_2,
-        leadingOnPress: ()=> Get.back(),
+        leadingOnPress: () => Get.back(),
         actions: [
           IconButton(
             icon: const Icon(Iconsax.maximize),
@@ -32,13 +33,14 @@ class ProductDetailsScreen extends StatelessWidget {
       ),
       body: NestedScrollView(
           physics: const BouncingScrollPhysics(),
+
           /// --Product Showcase
           headerSliverBuilder: (context, _) =>
               [const GProductDetailsShowcase()],
 
           /// --Body
           body: Container(
-            width: MediaQuery.of(context).size.width,
+            width: screenWidth,
             clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(
               color: dark ? GColors.black : GColors.white,
@@ -47,42 +49,44 @@ class ProductDetailsScreen extends StatelessWidget {
                 topRight: Radius.circular(36),
               ),
             ),
-            child: const Stack(
+            child: Stack(
               children: [
                 SingleChildScrollView(
-                  keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+                  keyboardDismissBehavior:
+                      ScrollViewKeyboardDismissBehavior.onDrag,
                   child: Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(GSizes.defaultSpace),
+                        padding: const EdgeInsets.all(GSizes.defaultSpace),
                         child: Column(
                           children: [
-                            /// --Popular Products Section
-                            // Products Title
-                            GSectionHeading(title: 'Nike Air Max 270', showActionButton: false),
-                            SizedBox(height: GSizes.spaceBtwSections),
-                            GBrandCard(
-                              imageUrl: GImages.nikeLogo,
-                              brandTitle: 'Nike',
-                              photoFit: BoxFit.scaleDown,
-                              showBorder: false,
-                            ),
-                            SizedBox(height: GSizes.spaceBtwSections),
-                            GSectionHeading(title: 'in stock', showActionButton: false),
-                            SizedBox(height: GSizes.spaceBtwSections),
-                            GSectionHeading(title: 'Nike Air Max 270', showActionButton: false),
-                            SizedBox(height: GSizes.spaceBtwSections),
-                            GSectionHeading(title: 'Size', showActionButton: false),
-                            SizedBox(height: GSizes.spaceBtwSections),
-                            GSectionHeading(title: 'Colors', showActionButton: false),
+                            // --Rating and Share Button
+                            GRatingAndShare(dark: dark),
+
+                            // --Price, Title, Stock and Brand
+                            const GProductMetaData(),
                           ],
                         ),
                       ),
                     ],
                   ),
                 ),
-                Divider(thickness: GSizes.xs,indent: 160,endIndent: 160,),
 
+                // --Bar that Indicates the page is Scrollable
+                Positioned(
+                  top: 6,
+                  right: screenWidth / 2.5,
+                  left: screenWidth / 2.5,
+                  child: Center(
+                    child: GCircularContainer(
+                      height: 5,
+                      width: 70,
+                      backgroundColor: dark
+                          ? GColors.grey.withOpacity(0.4)
+                          : GColors.darkerGrey.withOpacity(0.4),
+                    ),
+                  ),
+                ),
               ],
             ),
           )),
