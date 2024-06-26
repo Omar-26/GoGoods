@@ -1,4 +1,6 @@
+import 'package:GoGoods/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:GoGoods/utils/constants/colors.dart';
+import 'package:GoGoods/utils/constants/sizes.dart';
 import 'package:GoGoods/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
@@ -35,12 +37,27 @@ class GSectionHeading extends StatelessWidget {
         if (showActionButton)
           TextButton(
             onPressed: onPressed,
-            child: Text(
-              buttonText,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall!
-                  .apply(color: GColors.primary),
+            child: Row(
+              children: [
+                Text(
+                  buttonText,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .apply(color: GColors.primary),
+                ),
+                const SizedBox(width: GSizes.sm),
+                const GCircularContainer(
+                  padding: EdgeInsets.all(GSizes.xs),
+                  radius: GSizes.lg,
+                  backgroundColor: GColors.primary,
+                  child: Icon(
+                    Icons.arrow_forward_rounded,
+                    color: GColors.white,
+                    size: 16,
+                  ),
+                ),
+              ],
             ),
           )
       ],

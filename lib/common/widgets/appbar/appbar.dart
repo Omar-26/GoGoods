@@ -16,10 +16,11 @@ class GCustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.leadingOnPress,
     this.actions,
     this.leadingIconColor,
+    this.centerTitle,
   });
 
   final Widget? title;
-  final bool? showBackArrow;
+  final bool? showBackArrow, centerTitle;
   final bool showBackgroundColor;
   final IconData? leadingIcon;
   final Color? leadingIconColor;
@@ -34,6 +35,7 @@ class GCustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       padding: const EdgeInsets.symmetric(horizontal: GSizes.md),
       child: AppBar(
         elevation: 0,
+        centerTitle: centerTitle ?? false,
         scrolledUnderElevation: 0,
         bottomOpacity: 1,
         titleSpacing: 0,

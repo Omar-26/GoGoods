@@ -1,11 +1,8 @@
-import 'package:GoGoods/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:GoGoods/common/widgets/images/circular_border_image.dart';
 import 'package:GoGoods/utils/constants/image_strings.dart';
 import 'package:GoGoods/utils/constants/sizes.dart';
 import 'package:GoGoods/utils/helpers/helper_functions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import '../../../../../utils/constants/colors.dart';
 
 class GProductDetailsShowcase extends StatelessWidget {

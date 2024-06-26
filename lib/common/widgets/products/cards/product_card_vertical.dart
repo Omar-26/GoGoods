@@ -44,10 +44,25 @@ class GVerticalProductCard extends StatelessWidget {
               showBorder: false,
               child: Stack(
                 children: [
+                  Center(
+                    child: Text(
+                      'AIR',
+                      style: TextStyle(
+                        fontSize: 85,
+                        color: dark
+                            ? GColors.grey.withOpacity(0.4)
+                            : GColors.darkerGrey.withOpacity(0.4),
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                  ),
+
                   // Product Thumbnail
-                  GRoundedBorderImage(
-                    imageUrl: GImages.productImage1,
-                    backgroundColor: dark ? GColors.dark : GColors.white,
+                  const Center(
+                    child: GRoundedBorderImage(
+                      imageUrl: GImages.productImage10,
+                      // backgroundColor: dark ? GColors.dark : GColors.white,
+                    ),
                   ),
 
                   // Discount Badge
@@ -107,7 +122,7 @@ class GVerticalProductCard extends StatelessWidget {
                 // Price
                 const Padding(
                   padding: EdgeInsets.only(left: GSizes.sm),
-                  child: GProductPriceText(price: '120', isLargeText: true),
+                  child: GProductPriceText(price: '1,000', isLargeText: true),
                 ),
 
                 // Add to cart Button
