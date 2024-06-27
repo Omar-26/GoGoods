@@ -1,4 +1,7 @@
+import 'package:GoGoods/features/shop/screens/product_reviews/product_reviews.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../../utils/constants/colors.dart';
@@ -23,19 +26,22 @@ class GRatingAndShare extends StatelessWidget {
               size: 24,
             ),
             const SizedBox(width: GSizes.spaceBtwItems / 2),
-            Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(
-                    text: '4.8',
-                    style: Theme.of(context).textTheme.bodyLarge!.apply(
-                          color: dark ? GColors.grey : GColors.darkerGrey,
-                        ),
-                  ),
-                  TextSpan(
-                      text: ' (17221)',
-                      style: Theme.of(context).textTheme.bodySmall),
-                ],
+            GestureDetector(
+              onTap: ()=> Get.to(()=> const ProductReviewsScreen()),
+              child: Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: '4.8',
+                      style: Theme.of(context).textTheme.bodyLarge!.apply(
+                            color: dark ? GColors.grey : GColors.darkerGrey,
+                          ),
+                    ),
+                    TextSpan(
+                        text: ' (17221)',
+                        style: Theme.of(context).textTheme.bodySmall),
+                  ],
+                ),
               ),
             ),
           ],

@@ -49,16 +49,17 @@ class GProductMetaData extends StatelessWidget {
               ],
             ),
 
-            // --Share Button
+            // --Rating
             const GRatingAndShare(),
           ],
         ),
         const SizedBox(height: GSizes.spaceBtwItems / 1.2),
 
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            // --Title and Stock Status
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -78,7 +79,7 @@ class GProductMetaData extends StatelessWidget {
                     const Icon(
                       Icons.circle,
                       size: 14,
-                      color: GColors.primary,
+                      color: Colors.green,
                     ),
                     const SizedBox(width: GSizes.spaceBtwItems / 2),
                     Text(
@@ -92,6 +93,8 @@ class GProductMetaData extends StatelessWidget {
                 const SizedBox(height: GSizes.spaceBtwItems / 2),
               ],
             ),
+
+            // --Add to Cart Counter
             CartStepper(
               didChangeCount: (value) {},
               alwaysExpanded: true,
@@ -114,43 +117,3 @@ class GProductMetaData extends StatelessWidget {
     );
   }
 }
-
-/// --Price and Sale Price
-// Column(
-//   crossAxisAlignment: CrossAxisAlignment.start,
-//   children: [
-//     Row(
-//       children: [
-//         // --Price and Sale Price
-//         const GProductPriceText(
-//           price: '1000',
-//           isLargeText: true,
-//         ),
-//         const SizedBox(width: GSizes.spaceBtwItems),
-//
-//         // --Sale Tag
-//         GCircularContainer(
-//           radius: GSizes.lg,
-//           backgroundColor: GColors.primary,
-//           padding: const EdgeInsets.symmetric(
-//               vertical: GSizes.xs, horizontal: GSizes.sm),
-//           child: Text(
-//             '25%',
-//             style: Theme.of(context).textTheme.labelLarge!.apply(
-//                   color: GColors.white,
-//                   fontWeightDelta: 2,
-//                 ),
-//           ),
-//         ),
-//         const SizedBox(width: GSizes.spaceBtwItems),
-//       ],
-//     ),
-//     const SizedBox(height: GSizes.spaceBtwItems / 1.5),
-//     const GProductPriceText(
-//       price: '750',
-//       isLargeText: false,
-//       lineThrough: true,
-//     ),
-//   ],
-// ),
-// const SizedBox(height: GSizes.spaceBtwItems / 1.5),

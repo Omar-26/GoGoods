@@ -44,7 +44,7 @@ class GProductDetailsBottomNavBar extends StatelessWidget {
                 children: [
                   // --Sale Price
                   GProductPriceText(
-                    price: '750',
+                    price: '750.00',
                     lineThrough: true,
                     isLargeText: false,
                   ),
