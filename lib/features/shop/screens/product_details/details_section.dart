@@ -7,8 +7,8 @@ import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
 
-class GDetailsTab extends StatelessWidget {
-  const GDetailsTab({
+class GDetailsSection extends StatelessWidget {
+  const GDetailsSection({
     super.key,
   });
 
@@ -20,6 +20,32 @@ class GDetailsTab extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+
+        // --Description Title
+        const GSectionHeading(
+          title: 'Description',
+          showActionButton: false,
+        ),
+        const SizedBox(height: GSizes.spaceBtwItems),
+        // -Description
+        ReadMoreText(
+          'The Nike Air Max 270 React ENG combines a full-length React foam midsole with a 270 Max Air unit for unrivaled comfort and a striking visual experience.',
+          trimLines: 3,
+          trimMode: TrimMode.Line,
+          trimCollapsedText: 'read more',
+          trimExpandedText: ' show less',
+          moreStyle: Theme.of(context)
+              .textTheme
+              .bodySmall!
+              .apply(color: GColors.primary, fontWeightDelta: 1),
+          lessStyle: Theme.of(context)
+              .textTheme
+              .bodySmall!
+              .apply(color: GColors.primary, fontWeightDelta: 1),
+          style: Theme.of(context).textTheme.bodySmall,
+        ),
+        const SizedBox(height: GSizes.spaceBtwSections),
+
         // --Colors Title
         const Row(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -37,7 +63,7 @@ class GDetailsTab extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: GSizes.spaceBtwItems / 2),
+        const SizedBox(height: GSizes.spaceBtwItems),
         // --Colors
         Column(
           children: [
@@ -86,7 +112,7 @@ class GDetailsTab extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: GSizes.spaceBtwItems / 2),
+        const SizedBox(height: GSizes.spaceBtwItems),
         // --Sizes
         Column(
           children: [
@@ -94,17 +120,17 @@ class GDetailsTab extends StatelessWidget {
               spacing: GSizes.sm,
               children: [
                 GChoiceChip(
-                  label: 'Eu 32',
+                  label: '32 EU',
                   isSelected: false,
                   onSelected: (value) {},
                 ),
                 GChoiceChip(
-                  label: 'EU 34',
+                  label: '34 EU',
                   isSelected: false,
                   onSelected: (value) {},
                 ),
                 GChoiceChip(
-                  label: 'Eu 36',
+                  label: '36 Eu',
                   isSelected: true,
                   onSelected: (value) {},
                 ),
@@ -114,29 +140,6 @@ class GDetailsTab extends StatelessWidget {
         ),
         const SizedBox(height: GSizes.spaceBtwItems),
 
-        // --Description Title
-        const GSectionHeading(
-          title: 'Description',
-          showActionButton: false,
-        ),
-        const SizedBox(height: GSizes.spaceBtwItems / 2),
-        // -Description
-        ReadMoreText(
-          'The Nike Air Max 270 React ENG combines a full-length React foam midsole with a 270 Max Air unit for unrivaled comfort and a striking visual experience.',
-          trimLines: 3,
-          trimMode: TrimMode.Line,
-          trimCollapsedText: 'read more',
-          trimExpandedText: ' show less',
-          moreStyle: Theme.of(context)
-              .textTheme
-              .bodySmall!
-              .apply(color: GColors.primary, fontWeightDelta: 1),
-          lessStyle: Theme.of(context)
-              .textTheme
-              .bodySmall!
-              .apply(color: GColors.primary, fontWeightDelta: 1),
-          style: Theme.of(context).textTheme.bodySmall,
-        ),
       ],
     );
   }

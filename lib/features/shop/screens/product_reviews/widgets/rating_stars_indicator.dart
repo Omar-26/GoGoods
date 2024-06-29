@@ -9,9 +9,11 @@ class GRatingStarsIndicator extends StatelessWidget {
   const GRatingStarsIndicator({
     super.key,
     required this.rating,
+    this.starsColor, this.unratedColor,
   });
 
   final double rating;
+  final Color? starsColor, unratedColor;
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +22,9 @@ class GRatingStarsIndicator extends StatelessWidget {
     return RatingBarIndicator(
       rating: rating,
       itemSize: 20,
-      unratedColor: dark ? GColors.darkerGrey : GColors.grey,
-      itemBuilder: (_, __) => const Icon(Iconsax.star1, color: GColors.primary),
+      unratedColor: unratedColor ?? (dark ? GColors.darkerGrey : GColors.grey),
+      itemBuilder: (_, __) =>
+          Icon(Iconsax.star1, color: starsColor ?? GColors.primary),
     );
   }
 }

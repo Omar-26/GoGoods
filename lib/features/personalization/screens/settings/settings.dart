@@ -1,8 +1,10 @@
 import 'package:GoGoods/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:GoGoods/common/widgets/texts/section_heading.dart';
 import 'package:GoGoods/features/personalization/screens/settings/widgets/settings_appbar.dart';
+import 'package:GoGoods/features/personalization/screens/settings/widgets/settings_switch.dart';
 import 'package:GoGoods/utils/constants/colors.dart';
 import 'package:GoGoods/utils/constants/sizes.dart';
+import 'package:GoGoods/utils/helpers/helper_functions.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,8 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = GHelperFunctions.isDarkMode(context);
+
     return Scaffold(
       body: NestedScrollView(
         physics: const BouncingScrollPhysics(),
@@ -79,14 +83,12 @@ class SettingsScreen extends StatelessWidget {
                   icon: Iconsax.moon,
                   title: 'Dark Mode',
                   subTitle: 'Set the app to dark mode',
-                  trailing: Expanded(
-                    child: DayNightSwitcher(
-                      onStateChanged: (bool isDarkModeEnabled) {},
-                      isDarkModeEnabled: false,
-                      dayBackgroundColor: GColors.primary,
-                      nightBackgroundColor: GColors.primary,
-                      // sunColor: GColors.primary,
-                    ),
+                  trailing: DayNightSwitcher(
+                    onStateChanged: (bool isDarkModeEnabled) {},
+                    isDarkModeEnabled: false,
+                    dayBackgroundColor: GColors.primary,
+                    nightBackgroundColor: GColors.primary,
+                    // sunColor: GColors.primary,
                   ),
                   // trailing: Switch(value: true, onChanged: (value) {} ,),
                 ), // TSettingsMenuTile
@@ -95,22 +97,19 @@ class SettingsScreen extends StatelessWidget {
                   icon: Iconsax.location,
                   title: 'Geolocation',
                   subTitle: 'Set recommendation based on location',
-                  trailing: Switch(
-                    value: true,
-                    onChanged: (value) {},
-                  ),
+                  trailing: GSwitch(isActive: true, onChanged: (value) {}),
                 ), // TSettingsMenuTile
                 GSettingsMenuTile(
                   icon: Iconsax.security_user,
                   title: 'Safe Mode',
                   subTitle: 'Search result is safe for all ages',
-                  trailing: Switch(value: false, onChanged: (value) {}),
+                  trailing: GSwitch(isActive: false, onChanged: (value) {}),
                 ), // TSettingsMenuTile
                 GSettingsMenuTile(
                   icon: Iconsax.image,
                   title: 'HD Image Quality',
                   subTitle: 'Set image quality to be seen',
-                  trailing: Switch(value: false, onChanged: (value) {}),
+                  trailing: GSwitch(isActive: true, onChanged: (value) {}),
                 ), // TSettingsMenuTile
               ],
             ),
@@ -120,3 +119,4 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 }
+

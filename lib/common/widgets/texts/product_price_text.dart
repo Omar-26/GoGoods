@@ -11,11 +11,13 @@ class GProductPriceText extends StatelessWidget {
     this.maxLines = 1,
     this.isLargeText = false,
     this.lineThrough = false,
+    this.textColor,
   });
 
   final String currencySign, price;
   final int maxLines;
   final bool isLargeText, lineThrough;
+  final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,8 @@ class GProductPriceText extends StatelessWidget {
         style: isLargeText
             ? Theme.of(context).textTheme.headlineMedium!.apply(
               fontWeightDelta: 2,
-                decoration: lineThrough ? TextDecoration.lineThrough : null)
+                decoration: lineThrough ? TextDecoration.lineThrough : null,
+                color: textColor)
             : Theme.of(context).textTheme.titleMedium!.apply(
                 decoration: lineThrough ? TextDecoration.lineThrough : null,
                 color: dark ? GColors.grey : GColors.darkerGrey));

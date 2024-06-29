@@ -19,7 +19,7 @@ class GProductDetailsBottomNavBar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
           vertical: GSizes.md, horizontal: GSizes.defaultSpace),
       decoration: BoxDecoration(
-        color: dark ? GColors.black : GColors.white,
+        color: dark ? GColors.dark : GColors.light,
         // color: Colors.red,
         boxShadow: [
           BoxShadow(
@@ -50,8 +50,9 @@ class GProductDetailsBottomNavBar extends StatelessWidget {
                   ),
                   GProductPriceText(
                     price: '570.00',
-                    isLargeText: true,
                     maxLines: 1,
+                    textColor: GColors.primary,
+                    isLargeText: true,
                   ),
                 ],
               ),
@@ -65,7 +66,7 @@ class GProductDetailsBottomNavBar extends StatelessWidget {
               rolling: true,
               sliderBehavior: SliderBehavior.stretch,
               actionThresholdType: ThresholdType.instant,
-              backgroundColor: dark ? GColors.dark : GColors.light,
+              backgroundColor: dark ? GColors.black : GColors.white,
               boxShadow: [
                 BoxShadow(
                   color: dark
